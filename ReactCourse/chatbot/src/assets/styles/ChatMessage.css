@@ -1,0 +1,13 @@
+.chat-message-user {
+    display: flex;
+    justify-content: end;
+}
+
+.chat-message-bot {
+    display: flex;
+}
+
+.chat-message-text {
+    background-color: rgb(238, 238, 238);
+    font-family: Arial, Helvetica, sans-serif;
+}

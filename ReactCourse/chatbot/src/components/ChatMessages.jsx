@@ -1,5 +1,6 @@
 import React from 'react'
 import ChatMessage from './ChatMessage';
+import "../assets/styles/ChatMessages.css"
 
 const ChatMessages = ({chatMessages, setChatMessages}) => {
   return (

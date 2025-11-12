@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GoogleGenAI } from "@google/genai";
+import "../assets/styles/ChatInput.css"
 
 const ChatInput = ({ chatMessages, setChatMessages }) => {
   const [inputText, setInputText] = useState("");
@@ -16,7 +17,7 @@ const ChatInput = ({ chatMessages, setChatMessages }) => {
     return response.text;
   }
 
-  function SendMessage() {
+  async function SendMessage() {
     const newMessage = [
       ...chatMessages,
       {
@@ -29,7 +30,7 @@ const ChatInput = ({ chatMessages, setChatMessages }) => {
     setChatMessages(newMessage);
 
     // const response, get response
-    const response = getChatResponse(inputText);
+    const response = await getChatResponse(inputText);
 
     setChatMessages([
       ...newMessage,
@@ -44,15 +45,16 @@ const ChatInput = ({ chatMessages, setChatMessages }) => {
   }
 
   return (
-    <div>
+    <div className="input-container">
       <input
+        className="chat-input"
         type="text"
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
         placeholder="Send a message to the chatbot"
         size="30"
       />
-      <button onClick={SendMessage}>Send</button>
+      <button className="send-button" onClick={SendMessage}>Send</button>
     </div>
   );
 };
